@@ -16,7 +16,7 @@ namespace FirstApp.Models
             }
             private set 
             {
-                if(value<=0)
+                if(value <= 0)
                     throw new ArgumentOutOfRangeException("Номер страницы должен начинаться с 1");
 
                 currentPage = value;
