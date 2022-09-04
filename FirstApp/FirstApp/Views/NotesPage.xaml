@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstApp.Views.NotesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddButton_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <RelativeLayout>
+            <CollectionView x:Name="collectionView"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="OnSelectionChenged"
+                            RemainingItemsThreshold="5"
+                            RemainingItemsThresholdReached="BrowseElements">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10">
+                    </LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Text}" FontSize="Medium" TextColor="Black"></Label>
+                            <Label Text="{Binding Date}" TextColor="Silver" FontSize="Small"></Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        <Button Text="Up" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.7}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15}"
+                Clicked="UpButton_Clicked"  Margin="20"/>
+    </RelativeLayout>
+</ContentPage>
